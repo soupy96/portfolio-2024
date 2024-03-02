@@ -6,6 +6,8 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import LoadingSpinner from '../components/LoadingSpinner';
 
+// include smooth scrolling
+
 function Layout() {
   return (
     <MainBG>
