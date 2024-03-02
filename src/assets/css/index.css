@@ -2,8 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
+  /* Serif font */
   /* font-family: 'Source Serif 4', serif; */
+  /* Styled font */
   /* font-family: 'Bebas Neue', sans-serif; */
+  /* Main font */
   font-family: 'Lato', sans-serif;
+  background-color: #f2e1c2;
 }

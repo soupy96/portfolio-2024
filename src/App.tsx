@@ -1,17 +1,19 @@
-import './assets/css/App.css';
-import Nav from './components/Nav';
-import Body from './components/Body';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import Layout from './pages/Layout';
+
+const Home = React.lazy(() => import('./pages/Home'));
+const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 function App() {
   return (
-    <div>
-      <Nav />
-      <Body />
-      <Projects />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='*' element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
