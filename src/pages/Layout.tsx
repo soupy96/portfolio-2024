@@ -6,6 +6,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import LoadingSpinner from '../components/LoadingSpinner';
 
+// TODO
 // include smooth scrolling
 
 function Layout() {
