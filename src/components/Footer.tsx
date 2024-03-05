@@ -54,18 +54,12 @@ const BackToTop = styled.div`
   }
 
   &:hover .arrow {
-    /* yt pepo colour */
-    /* filter: invert(94%) sepia(6%) saturate(1080%) hue-rotate(345deg) brightness(95%) contrast(99%); */
-    /* orange colour */
     filter: invert(82%) sepia(57%) saturate(4284%) hue-rotate(331deg)
       brightness(90%) contrast(92%);
   }
 `;
 
 const Arrow = styled.img`
-  /* orange colour */
-  /* filter: invert(82%) sepia(57%) saturate(4284%) hue-rotate(331deg) brightness(90%) contrast(92%); */
-  /* yt pepo colour */
   filter: invert(99%) sepia(3%) saturate(3199%) hue-rotate(319deg)
     brightness(99%) contrast(93%);
   transition: filter 0.5s;
@@ -81,15 +75,6 @@ const Socials = styled.div`
 
 const SocialImgs = styled.img`
   width: 35px;
-  /* Dark Brown */
-  /* filter: invert(10%) sepia(62%) saturate(965%) hue-rotate(321deg) brightness(102%) contrast(98%); */
-  /* Orange */
-  /* filter: invert(82%) sepia(57%) saturate(4284%) hue-rotate(331deg) brightness(90%) contrast(92%); */
-  /* Light Brown */
-  /* filter: invert(28%) sepia(22%) saturate(1346%) hue-rotate(346deg) brightness(98%) contrast(85%); */
-  /* Green */
-  /* filter: invert(39%) sepia(56%) saturate(1707%) hue-rotate(124deg) brightness(97%) contrast(92%); */
-  /* yt pepo colour */
   filter: invert(99%) sepia(3%) saturate(3199%) hue-rotate(319deg)
     brightness(99%) contrast(93%);
 `;
