@@ -17,3 +17,11 @@ body {
   font-family: 'Lato', sans-serif;
   background-color: #f2e1c2;
 }
+
+.marquee {
+  font-size: 7rem;
+  background-color: #f2e1c2;
+  color: #f27830;
+  font-style: italic;
+  text-transform: uppercase;
+}

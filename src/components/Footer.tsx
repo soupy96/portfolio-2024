@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Marquee from 'react-fast-marquee';
 
 import BackToTopArrow from '../assets/imgs/backtotoparrow.svg';
 import Github from '../assets/imgs/github.svg';
@@ -7,42 +8,19 @@ import LinkedIn from '../assets/imgs/linkedin.svg';
 function Footer() {
   return (
     <FooterBox>
-      <MarqueeBox>
-        <ul>
-          <li>
-            <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com |
-            </a>
-          </li>
-          <li>
-            <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com |
-            </a>
-          </li>
-          <li>
-            <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com |
-            </a>
-          </li>
-        </ul>
-        <ul aria-hidden='true'>
-          <li>
-            <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com |
-            </a>
-          </li>
-          <li>
-            <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com |
-            </a>
-          </li>
-          <li>
-            <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com |
-            </a>
-          </li>
-        </ul>
-      </MarqueeBox>
+      <Marquee
+        className='marquee'
+        pauseOnHover
+        autoFill
+        speed={200}
+        gradient
+        gradientColor='#f3e1c2'
+        gradientWidth={50}
+      >
+        <a href='mailto:michael.campbell14@gmail.com'>
+          michael.campbell14@gmail.com
+        </a>
+      </Marquee>
       <BackToTop>
         <Arrow className='arrow' src={BackToTopArrow} />
       </BackToTop>
@@ -72,38 +50,6 @@ const FooterBox = styled.div`
   align-items: center;
   height: 500px;
   background-color: #f27830;
-`;
-
-const MarqueeBox = styled.div`
-  --gap: 1rem;
-  display: flex;
-  overflow: hidden;
-  /* user-select: none; */
-  gap: var(--gap);
-  font-size: 7rem;
-  background-color: #f2e1c2;
-
-  ul {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: space-around;
-    /* min-width: 100%; */
-    max-width: 100%;
-    gap: var(--gap);
-    animation: scroll 20s linear infinite;
-    color: #f27830;
-    font-style: italic;
-    text-transform: uppercase;
-  }
-
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
 `;
 
 const BackToTop = styled.div`
