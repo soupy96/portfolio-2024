@@ -11,34 +11,34 @@ function Footer() {
         <ul>
           <li>
             <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com
+              michael.campbell14@gmail.com |
             </a>
           </li>
           <li>
             <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com
+              michael.campbell14@gmail.com |
             </a>
           </li>
           <li>
             <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com
+              michael.campbell14@gmail.com |
             </a>
           </li>
         </ul>
         <ul aria-hidden='true'>
           <li>
             <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com
+              michael.campbell14@gmail.com |
             </a>
           </li>
           <li>
             <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com
+              michael.campbell14@gmail.com |
             </a>
           </li>
           <li>
             <a href='mailto:michael.campbell14@gmail.com'>
-              michael.campbell14@gmail.com
+              michael.campbell14@gmail.com |
             </a>
           </li>
         </ul>
@@ -75,7 +75,7 @@ const FooterBox = styled.div`
 `;
 
 const MarqueeBox = styled.div`
-  --gap: 3rem;
+  --gap: 1rem;
   display: flex;
   overflow: hidden;
   /* user-select: none; */
