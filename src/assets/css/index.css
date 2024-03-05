@@ -16,4 +16,5 @@ body {
   /* Main font */
   font-family: 'Lato', sans-serif;
   background-color: #f2e1c2;
+  /* overflow-x: hidden; */
 }

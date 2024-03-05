@@ -7,6 +7,42 @@ import LinkedIn from '../assets/imgs/linkedin.svg';
 function Footer() {
   return (
     <FooterBox>
+      <MarqueeBox>
+        <ul>
+          <li>
+            <a href='mailto:michael.campbell14@gmail.com'>
+              michael.campbell14@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href='mailto:michael.campbell14@gmail.com'>
+              michael.campbell14@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href='mailto:michael.campbell14@gmail.com'>
+              michael.campbell14@gmail.com
+            </a>
+          </li>
+        </ul>
+        <ul aria-hidden='true'>
+          <li>
+            <a href='mailto:michael.campbell14@gmail.com'>
+              michael.campbell14@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href='mailto:michael.campbell14@gmail.com'>
+              michael.campbell14@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href='mailto:michael.campbell14@gmail.com'>
+              michael.campbell14@gmail.com
+            </a>
+          </li>
+        </ul>
+      </MarqueeBox>
       <BackToTop>
         <Arrow className='arrow' src={BackToTopArrow} />
       </BackToTop>
@@ -34,8 +70,40 @@ const FooterBox = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 325px;
+  height: 500px;
   background-color: #f27830;
+`;
+
+const MarqueeBox = styled.div`
+  --gap: 3rem;
+  display: flex;
+  overflow: hidden;
+  /* user-select: none; */
+  gap: var(--gap);
+  font-size: 7rem;
+  background-color: #f2e1c2;
+
+  ul {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    /* min-width: 100%; */
+    max-width: 100%;
+    gap: var(--gap);
+    animation: scroll 20s linear infinite;
+    color: #f27830;
+    font-style: italic;
+    text-transform: uppercase;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
 `;
 
 const BackToTop = styled.div`
