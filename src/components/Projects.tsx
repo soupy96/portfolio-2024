@@ -1,105 +1,101 @@
+import React from 'react';
 import styled from 'styled-components';
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import 'react-horizontal-scrolling-menu/dist/styles.css';
 
-// TODO
+import { LeftArrow, RightArrow } from './arrows';
+import { Card } from './card';
+import { DragDealer } from './DragDealer';
+import '../assets/css/hideScrollbar.css';
+
+type scrollVisibilityApiType = React.ContextType<typeof VisibilityContext>;
+
+const elemPrefix = 'test';
+const getId = (index: number) => `${elemPrefix}${index}`;
+
+const getItems = () =>
+  Array(20)
+    .fill(0)
+    .map((_, ind) => ({ id: getId(ind) }));
 
 function Projects() {
+  const [items] = React.useState(getItems);
+
+  // NOTE: for drag by mouse
+  const dragState = React.useRef(new DragDealer());
+
+  const handleDrag =
+    ({ scrollContainer }: scrollVisibilityApiType) =>
+    (ev: React.MouseEvent) =>
+      dragState.current.dragMove(ev, (posDiff: number) => {
+        if (scrollContainer.current) {
+          scrollContainer.current.scrollLeft += posDiff;
+        }
+      });
+
+  const [selected, setSelected] = React.useState<string>('');
+  const handleItemClick = (itemId: string) => () => {
+    if (dragState.current.dragging) {
+      return false;
+    }
+    setSelected(selected !== itemId ? itemId : '');
+  };
+
   return (
     <ProjectBox>
-      <NumberSide>
-        {/* Replace the numbers with the "card" img of each project */}
-        {/* have each card slide out and the new card slide in */}
-        {/* when hovering the card img make the outline of the img the same as hoving over a video on angusemmerson.com/outback-posthouse */}
-        {/* outline the card with a line and the title of the current project */}
-        <p>01</p>
-        <p>02</p>
-        <p>03</p>
-      </NumberSide>
-      <ProjectSide>
-        <SingleProject>
-          <Info>
-            <h2>This is a test</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae qui
-              optio eos omnis odit culpa assumenda quasi ipsum! Laborum in
-              quaerat voluptatem eos nemo quae numquam saepe aut quod natus.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-              consequatur nemo quod earum accusamus consequuntur, aperiam rem
-              doloribus? Laudantium magnam laboriosam sed est eius saepe dicta
-              ad velit ullam libero.
-            </p>
-          </Info>
-          <Number>01</Number>
-        </SingleProject>
-        <SingleProject>
-          <Info>
-            <h2>Michael Campbell</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae qui
-              optio eos omnis odit culpa assumenda quasi ipsum! Laborum in
-              quaerat voluptatem eos nemo quae numquam saepe aut quod natus.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-              consequatur nemo quod earum accusamus consequuntur, aperiam rem
-              doloribus? Laudantium magnam laboriosam sed est eius saepe dicta
-              ad velit ullam libero.
-            </p>
-          </Info>
-          <Number>02</Number>
-        </SingleProject>
-        <SingleProject>
-          <Info>
-            <h2>Robyn Walters</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae qui
-              optio eos omnis odit culpa assumenda quasi ipsum! Laborum in
-              quaerat voluptatem eos nemo quae numquam saepe aut quod natus.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-              consequatur nemo quod earum accusamus consequuntur, aperiam rem
-              doloribus? Laudantium magnam laboriosam sed est eius saepe dicta
-              ad velit ullam libero.
-            </p>
-          </Info>
-          <Number>03</Number>
-        </SingleProject>
-      </ProjectSide>
+      <div className='example' style={{ paddingTop: '100px' }}>
+        <div onMouseLeave={dragState.current.dragStop}>
+          <ScrollMenu
+            LeftArrow={LeftArrow}
+            RightArrow={RightArrow}
+            onWheel={onWheel}
+            onMouseDown={() => dragState.current.dragStart}
+            onMouseUp={() => dragState.current.dragStop}
+            onMouseMove={handleDrag}
+          >
+            {items.map(({ id }) => (
+              <Card
+                title={id}
+                itemId={id} // NOTE: itemId is required for track items
+                key={id}
+                onClick={handleItemClick(id)}
+                selected={id === selected}
+              />
+            ))}
+          </ScrollMenu>
+        </div>
+      </div>
     </ProjectBox>
   );
 }
 
 const ProjectBox = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
+  height: 100%;
 `;
 
-const NumberSide = styled.div`
-  width: 40%;
-  font-size: 400px;
-`;
-
-const ProjectSide = styled.div`
-  width: 50%;
-`;
-
-const SingleProject = styled.div`
-  height: 550px;
-  border-top: 1px solid #000;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const Info = styled.div`
-  width: 70%;
-  font-size: 20px;
-
-  h2 {
-    font-size: 100px;
-    margin-bottom: 20px;
-  }
-`;
-
-const Number = styled.div`
-  width: 5%;
-  text-align: right;
+const SingleCard = styled.div`
+  height: 700px;
+  width: 500px;
+  background-color: aquamarine;
+  margin: 0px 50px;
 `;
 
 export default Projects;
+
+function onWheel(apiObj: scrollVisibilityApiType, ev: React.WheelEvent): void {
+  const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+
+  if (isThouchpad) {
+    ev.stopPropagation();
+    return;
+  }
+
+  if (ev.deltaY < 0) {
+    apiObj.scrollNext();
+  } else if (ev.deltaY > 0) {
+    apiObj.scrollPrev();
+  }
+}
