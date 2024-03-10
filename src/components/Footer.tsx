@@ -6,6 +6,10 @@ import Github from '../assets/imgs/github.svg';
 import LinkedIn from '../assets/imgs/linkedin.svg';
 
 function Footer() {
+  const BackToTopFunc = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <FooterBox>
       <Marquee
@@ -21,7 +25,7 @@ function Footer() {
           michael.campbell14@gmail.com
         </a>
       </Marquee>
-      <BackToTop>
+      <BackToTop onClick={BackToTopFunc}>
         <Arrow className='arrow' src={BackToTopArrow} />
       </BackToTop>
       <Socials>

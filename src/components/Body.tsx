@@ -7,9 +7,14 @@ function Body() {
     <BodyBox>
       <NumberSide>
         {/* have each number slide out and the new number slide in */}
-        <p>01</p>
-        {/* <p>02</p> */}
-        {/* <p>03</p> */}
+        <LeftSide>
+          <p>0</p>
+        </LeftSide>
+        <RightSide>
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+        </RightSide>
       </NumberSide>
       <BodySide>
         <SingleBody>
@@ -75,16 +80,24 @@ const BodyBox = styled.div`
 
 const NumberSide = styled.div`
   width: 40%;
-  font-size: 400px;
+  font-size: 35rem;
+  display: flex;
+  justify-content: space-evenly;
 
   p {
     position: sticky;
+    line-height: 450px;
     top: 0;
+    overflow: hidden;
   }
 `;
 
+const LeftSide = styled.div``;
+
+const RightSide = styled.div``;
+
 const BodySide = styled.div`
-  width: 50%;
+  width: 60%;
 `;
 
 const SingleBody = styled.div`

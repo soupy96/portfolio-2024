@@ -1,29 +1,45 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 function Projects() {
   return (
-    <div className='projectbox'>
-      <div className='card todo-card'>
-        <Info>
-          <p>Todo App</p>
-          <DotBox />
-        </Info>
+    <MainProjectBox>
+      <div className='projectbox'>
+        <Link to='/todo'>
+          <div className='card todo-card'>
+            <Info>
+              <p>Todo App</p>
+              <DotBox />
+            </Info>
+          </div>
+        </Link>
+        <Link to='/hockey'>
+          <div className='card hockey-card'>
+            <Info>
+              <p>The Pro Hockey Group</p>
+              <DotBox />
+            </Info>
+          </div>
+        </Link>
+        <Link to='/skull'>
+          <div className='card skull-split-card'>
+            <Info>
+              <p>Skull Split</p>
+              <DotBox />
+            </Info>
+          </div>
+        </Link>
       </div>
-      <div className='card hockey-card'>
-        <Info>
-          <p>The Pro Hockey Group</p>
-          <DotBox />
-        </Info>
-      </div>
-      <div className='card skull-split-card'>
-        <Info>
-          <p>Skull Split</p>
-          <DotBox />
-        </Info>
-      </div>
-    </div>
+      <ViewMoreProjects>
+        <Link to='/projects'>View more</Link>
+      </ViewMoreProjects>
+    </MainProjectBox>
   );
 }
+
+const MainProjectBox = styled.div`
+  margin-bottom: 150px;
+`;
 
 const Info = styled.div`
   width: 90%;
@@ -40,6 +56,51 @@ const DotBox = styled.span`
   width: 10px;
   height: 10px;
   background-color: #f2e1c2;
+`;
+
+const ViewMoreProjects = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.25rem;
+  margin-top: 10px;
+
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: #f27830;
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+  }
+
+  a:hover::after,
+  a:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+  }
+
+  a {
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+  }
+
+  a::after {
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
+  }
+
+  a:hover::after,
+  a:focus::after {
+    transform: translate3d(0, 0, 0);
+  }
 `;
 
 export default Projects;

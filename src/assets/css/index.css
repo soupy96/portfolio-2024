@@ -33,7 +33,7 @@ body {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  margin-bottom: 150px;
+  filter: blur(0px);
 }
 
 .projectbox:hover .card:not(:hover) {
@@ -61,7 +61,7 @@ body {
 .hockey-card {
   background: linear-gradient(rgba(255, 255, 255, 0) 20%, rgb(64, 21, 21) 100%),
     url('../imgs/prohockey.jpg');
-  background-position: center;
+  background-position: right;
   background-size: cover;
   background-repeat: no-repeat;
 }
