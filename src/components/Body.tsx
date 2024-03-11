@@ -102,7 +102,7 @@ const BodySide = styled.div`
 
 const SingleBody = styled.div`
   height: 550px;
-  border-top: 1px solid #000;
+  border-top: 1px solid #401515;
   display: flex;
   justify-content: space-between;
 `;

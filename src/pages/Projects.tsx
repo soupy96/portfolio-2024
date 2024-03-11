@@ -1,13 +1,19 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 function Projects() {
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  });
+
   return (
     <MainProjectBox>
       <Helmet>
         <title>Big Mike | Projects</title>
       </Helmet>
+      <h1>Showcase</h1>
       <div className='projectbox'>
         <Link to='/todo'>
           <div className='card-page todo-card'>
@@ -17,18 +23,18 @@ function Projects() {
             </Info>
           </div>
         </Link>
-        <Link to='/hockey'>
-          <div className='card-page hockey-card'>
-            <Info>
-              <p>The Pro Hockey Group</p>
-              <DotBox />
-            </Info>
-          </div>
-        </Link>
         <Link to='/skull'>
           <div className='card-page skull-split-card'>
             <Info>
               <p>Skull Split</p>
+              <DotBox />
+            </Info>
+          </div>
+        </Link>
+        <Link to='/hockey'>
+          <div className='card-page hockey-card'>
+            <Info>
+              <p>The Pro Hockey Group</p>
               <DotBox />
             </Info>
           </div>
@@ -72,6 +78,13 @@ function Projects() {
 
 const MainProjectBox = styled.div`
   margin-bottom: 150px;
+
+  h1 {
+    font-size: 5rem;
+    font-family: 'Source Serif 4', serif;
+    margin: 50px 0px;
+    text-align: center;
+  }
 `;
 
 const Info = styled.div`

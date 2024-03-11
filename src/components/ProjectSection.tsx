@@ -13,18 +13,18 @@ function ProjectSection() {
             </Info>
           </div>
         </Link>
-        <Link to='/hockey'>
-          <div className='card hockey-card'>
-            <Info>
-              <p>The Pro Hockey Group</p>
-              <DotBox />
-            </Info>
-          </div>
-        </Link>
         <Link to='/skull'>
           <div className='card skull-split-card'>
             <Info>
               <p>Skull Split</p>
+              <DotBox />
+            </Info>
+          </div>
+        </Link>
+        <Link to='/hockey'>
+          <div className='card hockey-card'>
+            <Info>
+              <p>The Pro Hockey Group</p>
               <DotBox />
             </Info>
           </div>
