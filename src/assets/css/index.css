@@ -34,6 +34,7 @@ body {
   width: 100%;
   height: 100%;
   filter: blur(0px);
+  flex-wrap: wrap;
 }
 
 .projectbox:hover .card:not(:hover) {
@@ -41,13 +42,34 @@ body {
 }
 
 .card {
-  height: 80vh;
+  height: 70vh;
   width: 30vw;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  border-radius: 0px;
+  transition: filter, border-radius 0.5s;
+  margin: 30px 0px;
+}
+
+.card:hover {
   border-radius: 15px;
-  transition: filter 0.5s;
+}
+
+.card-page {
+  height: 60vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  border-radius: 0px;
+  border-radius: 0px;
+  transition: filter, border-radius 0.5s;
+  margin: 30px 0px;
+}
+
+.card-page:hover {
+  border-radius: 15px;
 }
 
 .todo-card {
@@ -70,6 +92,38 @@ body {
   background: linear-gradient(rgba(255, 255, 255, 0) 20%, rgb(64, 21, 21) 100%),
     url('../imgs/skull-split.webp');
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.jim-chapman {
+  background: linear-gradient(rgba(255, 255, 255, 0) 20%, rgb(64, 21, 21) 100%),
+    url('../imgs/jim-chapman.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.github-finder {
+  background: linear-gradient(rgba(255, 255, 255, 0) 20%, rgb(64, 21, 21) 100%),
+    url('../imgs/github-finder.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.fifty-in-fifty {
+  background: linear-gradient(rgba(255, 255, 255, 0) 20%, rgb(64, 21, 21) 100%),
+    url('../imgs/fifty-in-fifty.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.updraft {
+  background: linear-gradient(rgba(255, 255, 255, 0) 20%, rgb(64, 21, 21) 100%),
+    url('../imgs/blackridge.png');
+  background-position: right;
   background-size: cover;
   background-repeat: no-repeat;
 }

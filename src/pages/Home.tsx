@@ -2,17 +2,17 @@ import { Helmet } from 'react-helmet';
 
 import Hero from '../components/Hero';
 import Body from '../components/Body';
-import Projects from '../components/Projects';
+import ProjectSection from '../components/ProjectSection';
 
 function MainPage() {
   return (
     <div>
       <Helmet>
-        <title>Big Mike | Home ✌</title>
+        <title>Big Mike ✌</title>
       </Helmet>
       <Hero />
       <Body />
-      <Projects />
+      <ProjectSection />
     </div>
   );
 }

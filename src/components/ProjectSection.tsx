@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-function Projects() {
+function ProjectSection() {
   return (
     <MainProjectBox>
       <div className='projectbox'>
@@ -103,4 +103,4 @@ const ViewMoreProjects = styled.div`
   }
 `;
 
-export default Projects;
+export default ProjectSection;

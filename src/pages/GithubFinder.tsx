@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 
-function Skull() {
+function GithubFinder() {
   return (
     <div>
       <Helmet>
-        <title>Big Mike | Skull Split</title>
+        <title>Big Mike | Github Finder</title>
       </Helmet>
-      <Text>Skull Split</Text>
+      <Text>Github Finder</Text>
     </div>
   );
 }
@@ -17,4 +17,4 @@ const Text = styled.div`
   margin: 25% 0px;
 `;
 
-export default Skull;
+export default GithubFinder;
