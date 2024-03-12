@@ -79,10 +79,14 @@ const BodyBox = styled.div`
 `;
 
 const NumberSide = styled.div`
+  display: flex;
   width: 40%;
   font-size: 35rem;
-  display: flex;
   justify-content: space-evenly;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 
   p {
     position: sticky;

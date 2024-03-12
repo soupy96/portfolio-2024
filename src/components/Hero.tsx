@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import hero from '../assets/imgs/oleg-laptev-unsplash.png';
-// import hero from '../assets/imgs/ashim-d-silva-unsplash.png';
 
 // TODO
 // make text look nice
